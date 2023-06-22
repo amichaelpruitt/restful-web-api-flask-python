@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Metadata, Bootstrap CSS link, and title -->
+    <!-- ... -->
+    <title>User Records</title>
+    <script>
+        /* Function to perform GET, POST, PUT, DELETE */
+        function performOperation(operation) {
+            /* Get values from form inputs */
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+
+            let url = "http://localhost:5000";
+
+            /* options for the fetch request */
+            let options = {
+                method: operation,
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 'name': name, 'email': email })
+            };
+
+            /* Modify options for GET operation */
+            if (operation == 'GET') {
+                url += '?name=' + name;
+                options = { method: 'GET' };
+            }
+
+            /* fetch request and handle response */
+            fetch(url, options)
+                .then(response => response.json())
+                .then(data => alert(JSON.stringify(data)));
+        }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+        <h1>User Records</h1>
+        <!-- Form for name/email inputs & operation buttons -->
+        <form>
+            <input type="text" id="name" placeholder="Name">
+            <input type="text" id="email" placeholder="Email">
+            <button type="button" onclick="performOperation('GET')">Get</button>
+            <button type="button" onclick="performOperation('POST')">Post</button>
+            <button type="button" onclick="performOperation('PUT')">Put</button>
+            <button type="button" onclick="performOperation('DELETE')">Delete</button>
+        </form>
+        <!-- user records -->
+        <ul class="list-group">
+        {% for record in records %}
+            <li class="list-group-item">{{ record.name }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+    <!-- Bootstrap JS link -->
+  </body>
+</html>
