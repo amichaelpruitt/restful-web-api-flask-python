@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Bob",
+    "email": "bob@email.com",
+    "city": "San Francisco",
+    "age": 30
+  },
+  {
+    "name": "Charlie",
+    "email": "charlie@email.com",
+    "city": "Chicago",
+    "age": 35
+  },
+  {
+    "name": "David",
+    "email": "david@email.com",
+    "city": "Boston",
+    "age": 40
+  },
+  {
+    "name": "Eve",
+    "email": "eve@email.com",
+    "city": "Seattle",
+    "age": 45
+  },
+  {
+    "name": "Alice",
+    "email": ""
+  },
+  {
+    "name": "Frank",
+    "email": ""
+  }
+]
